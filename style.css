@@ -81,14 +81,22 @@ body {
 
 /* Hero image column */
 .hero-image {
-  flex: 1 1 250px;  /* column width for desktop */
+  flex: 1 1 250px;  /* image column */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hero image column */
+.hero-image {
+  flex: 1 1 200px;  /* smaller image column */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .hero-image img {
-  max-width: 250px;  /* desktop image width */
+  max-width: 200px; /* smaller width */
   height: auto;
   border-radius: 15px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
@@ -102,10 +110,8 @@ body {
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .hero-image img {
-    max-width: 180px;  /* mobile image width */
+    max-width: 150px; /* even smaller on mobile */
   }
-}
-
 }
 .logo img {
   max-width: 90%;
@@ -712,14 +718,24 @@ body {
   margin-bottom: 30px;
 }
 
-/* ========== Portfolio Grid ========== */
+/* ========== Portfolio Grid with taller, more zig-zag images ========== */
 .grid-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* slightly wider for vertical */
   gap: 15px;
   max-width: 1000px;
   margin: 60px auto;
   padding: 0 20px;
+  align-items: start;
+}
+
+/* Zig-zag effect with taller offset */
+.grid-gallery a:nth-child(odd) img {
+  transform: translateY(0);
+}
+
+.grid-gallery a:nth-child(even) img {
+  transform: translateY(50px); /* larger vertical offset for more zig-zag */
 }
 
 .grid-gallery a {
@@ -730,33 +746,48 @@ body {
 
 .grid-gallery img {
   width: 100%;
-  height: auto;
+  height: 250px; /* taller vertical images */
+  object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(255, 119, 169, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #ffd2e1;
 }
 
 .grid-gallery img:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) translateY(0); /* resets offset on hover */
   box-shadow: 0 10px 25px rgba(255, 119, 169, 0.5);
 }
-.grid-gallery .tall {
-  grid-row: span 2;
-}
 
-
-/* Responsive Columns */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .masonry-grid {
-    column-count: 2;
+  .grid-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
-}
-@media (max-width: 480px) {
-  .masonry-grid {
-    column-count: 1;
+
+  .grid-gallery a:nth-child(even) img {
+    transform: translateY(30px); /* still pronounced zig-zag on tablet */
+  }
+
+  .grid-gallery img {
+    height: 200px;
   }
 }
 
+@media (max-width: 480px) {
+  .grid-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-gallery a:nth-child(even) img {
+    transform: translateY(20px); /* maintain zig-zag on mobile */
+  }
+
+  .grid-gallery img {
+    height: 180px;
+  }
+}
 
 /* ========== Lightbox Overlay ========== */
 .lightbox {
@@ -977,5 +1008,3 @@ body::before {
     width: auto;
   }
 }
-
-
