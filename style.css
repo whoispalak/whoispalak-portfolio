@@ -89,14 +89,14 @@ body {
 
 /* Hero image column */
 .hero-image {
-  flex: 1 1 200px;  /* smaller image column */
+  flex: 1 1 250px;  /* slightly bigger image column */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .hero-image img {
-  max-width: 200px; /* smaller width */
+  max-width: 250px; /* slightly bigger width */
   height: auto;
   border-radius: 15px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.15);
@@ -110,8 +110,9 @@ body {
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .hero-image img {
-    max-width: 150px; /* even smaller on mobile */
+    max-width: 180px; /* slightly bigger on mobile too */
   }
+
 }
 .logo img {
   max-width: 90%;
@@ -983,3 +984,4 @@ body::before {
     width: auto;
   }
 }
+
