@@ -1085,7 +1085,7 @@ body {
   background: #fff9e6;
   padding: 10px 14px;
   border-radius: 15px;
-  font-family: 'Patrick Hand', cursive;
+  font-family: 'Shadows Into Light', cursive; /* Updated font */
   font-size: 0.95rem;
   color: #333;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
@@ -1093,6 +1093,7 @@ body {
   overflow: visible;
 }
 
+/* Bow icon */
 .caption.note-style .bow {
   font-size: 1rem;
   display: inline-block;
@@ -1120,6 +1121,7 @@ body {
   right: -6px;
   transform: rotate(15deg);
 }
+
 
 /* Random positions & rotation for captions */
 .photo-card:nth-child(1) .caption { top: -20px; left: 10px; transform: rotate(-3deg); }
@@ -1161,3 +1163,4 @@ body {
     display: none; /* hide tape on mobile */
   }
 }
+
