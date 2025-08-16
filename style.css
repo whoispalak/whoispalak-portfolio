@@ -165,7 +165,7 @@ body {
 .bio {
   font-family: 'Edu NSW ACT Foundation', cursive;
   font-size: 1.6rem;
-  color: var(--text-light);
+  color: var(--text-dark);
   margin-bottom: 20px;
   line-height: 1.5;
   text-align: center; /* center align paragraph */
@@ -1157,6 +1157,7 @@ body::before {
   .caption.note-style .tape { display: none; }
   .caption.note-style .bow { font-size: 0.85rem; }
 }
+
 
 
 
