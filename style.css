@@ -113,34 +113,54 @@ body {
     max-width: 150px; /* even smaller on mobile */
   }
 }
-.logo img {
-  max-width: 90%;
-  height: auto;
-  max-height: 200px;
-}
-
-@media (max-width: 768px) {
-  body::before {
-    position: absolute;
-  }
-  .logo {
-    display: flex !important;
-    visibility: visible !important;
-  }
-  /* Pulse animation on load */
-  animation: pulseIn 1s ease-out 0.2s both;
-}
-
+/* Logo container */
 .logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Great Vibes', cursive;
-  font-size: 4rem;
-  color: var(--gold);
-  margin-bottom: 10px;
+  position: relative;   /* allows z-index to work */
+  z-index: 1000;        /* ensures logo is above everything */
+  margin-bottom: 20px;
   user-select: none;
+  animation: pulseIn 1s ease-out 0.2s both; /* pulse animation */
 }
+
+/* Logo image */
+.logo img {
+  max-width: 300px;     /* desktop size */
+  max-height: 200px;
+  width: auto;
+  height: auto;
+  display: block;
+  animation: pulseIn 1s ease-out 0.2s both; /* pulse animation */
+}
+
+/* Pulse animation keyframes */
+@keyframes pulseIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .logo img {
+    max-width: 200px;   /* smaller logo on mobile */
+  }
+  .logo {
+    animation: pulseIn 1s ease-out 0.2s both; /* keep animation on mobile */
+  }
+}
+
 
 .bio {
   font-family: 'Edu NSW ACT Foundation', cursive;
@@ -1163,4 +1183,5 @@ body {
     display: none; /* hide tape on mobile */
   }
 }
+
 
